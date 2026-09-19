@@ -1,0 +1,129 @@
+
+
+/* =========================================================
+   PSKPP SELANGOR 2026
+   GOOGLE PHOTOS BUTTON
+========================================================= */
+
+.gallery-upload-btn {
+
+  position: relative;
+
+  display: inline-flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  gap: 12px;
+
+  min-height: 72px;
+
+  padding:
+    0 28px;
+
+  border-radius: 16px;
+
+  border:
+    1px solid
+    rgba(255, 210, 0, 0.30);
+
+  background:
+    linear-gradient(
+      135deg,
+      #ed002b 0%,
+      #c90025 100%
+    );
+
+  color:
+    #ffffff;
+
+  font-family:
+    'Montserrat',
+    sans-serif;
+
+  font-size:
+    10px;
+
+  font-weight:
+    900;
+
+  letter-spacing:
+    .2px;
+
+  cursor:
+    pointer;
+
+  overflow:
+    hidden;
+
+  transition:
+    transform .2s ease,
+    border-color .2s ease,
+    box-shadow .2s ease;
+
+}
+
+
+/* ICON */
+
+.gallery-upload-btn i {
+
+  font-size:
+    18px;
+
+}
+
+
+/* HOVER */
+
+.gallery-upload-btn:hover {
+
+  transform:
+    translateY(-2px);
+
+  border-color:
+    #FFD200;
+
+  box-shadow:
+    0 0 0 1px
+      rgba(255,210,0,.20),
+
+    0 0 24px
+      rgba(255,210,0,.35),
+
+    0 12px 30px
+      rgba(237,0,43,.30);
+
+}
+
+
+/* CLICK */
+
+.gallery-upload-btn:active {
+
+  transform:
+    translateY(0)
+    scale(.98);
+
+  box-shadow:
+    0 0 20px
+      rgba(255,210,0,.45);
+
+}
+
+
+/* MOBILE */
+
+@media (max-width:700px) {
+
+  .gallery-upload-btn {
+
+    width:100%;
+
+    min-height:60px;
+
+  }
+
+}
+

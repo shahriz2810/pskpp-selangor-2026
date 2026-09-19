@@ -1,0 +1,495 @@
+
+console.log('=== RULES JAVASCRIPT BERJAYA DIMUATKAN ===');
+
+/* =========================================================
+   PSKPP SELANGOR 2026
+   MODUL PERATURAN - GITHUB FRONT END
+   ========================================================= */
+
+window.PSKPP_RULES = window.PSKPP_RULES || {
+  loaded: false,
+  data: []
+};
+
+
+/* =========================================================
+   API
+   ========================================================= */
+
+const PSKPP_RULES_API_URL =
+  'https://script.google.com/macros/s/AKfycbxNSoQcdVKCWdaXg_I6EizyvYSAWgIQa1ghef2zhoiR7h5MjGYgZsqeTyDieOUMLBMAZw/exec';
+
+
+/* =========================================================
+   LOAD DATA
+   ========================================================= */
+
+async function rulesLoadData() {
+
+  const container =
+    document.getElementById('rulesCards');
+
+  if (!container) {
+    console.error(
+      'RULES: #rulesCards tidak dijumpai.'
+    );
+    return;
+  }
+
+  container.innerHTML = `
+    <div class="rules-loading">
+      Memuatkan peraturan pertandingan...
+    </div>
+  `;
+
+  console.log(
+    'RULES: Memanggil API peraturan...'
+  );
+
+  try {
+
+    const url =
+      PSKPP_RULES_API_URL +
+      '?api=rules&_=' +
+      Date.now();
+
+    const response =
+      await fetch(url, {
+        method: 'GET',
+        cache: 'no-store'
+      });
+
+    if (!response.ok) {
+      throw new Error(
+        'HTTP ' + response.status
+      );
+    }
+
+    const result =
+      await response.json();
+
+    console.log(
+      'RULES DATA DITERIMA:',
+      result
+    );
+
+    if (
+      !result ||
+      result.success !== true ||
+      !Array.isArray(result.data)
+    ) {
+      throw new Error(
+        'Format data peraturan tidak sah.'
+      );
+    }
+
+    window.PSKPP_RULES.data =
+      result.data;
+
+    window.PSKPP_RULES.loaded =
+      true;
+
+    rulesRenderCards(
+      window.PSKPP_RULES.data
+    );
+
+  } catch (error) {
+
+    console.error(
+      'RULES API ERROR:',
+      error
+    );
+
+    window.PSKPP_RULES.loaded =
+      false;
+
+    rulesShowError(
+      error && error.message
+        ? error.message
+        : 'Peraturan pertandingan tidak dapat dimuatkan.'
+    );
+
+  }
+
+}
+
+
+/* =========================================================
+   RENDER SCORECARD
+   ========================================================= */
+
+function rulesRenderCards(data) {
+
+  const container =
+    document.getElementById('rulesCards');
+
+  if (!container) {
+    console.error(
+      'RULES: #rulesCards tidak dijumpai.'
+    );
+    return;
+  }
+
+  if (
+    !Array.isArray(data) ||
+    data.length === 0
+  ) {
+
+    container.innerHTML = `
+      <div class="rules-empty">
+
+        <div class="rules-empty-icon">
+          📄
+        </div>
+
+        <div class="rules-empty-title">
+          PERATURAN
+        </div>
+
+        <div class="rules-empty-text">
+          Dokumen peraturan belum tersedia.
+        </div>
+
+      </div>
+    `;
+
+    return;
+  }
+
+
+  container.innerHTML =
+    data.map(function(item, index) {
+
+      const nama =
+        rulesEscapeHtml(
+          item.namaSukan ||
+          'PERATURAN'
+        );
+
+      const viewUrl =
+        rulesSafeUrl(
+          item.viewUrl
+        );
+
+      const downloadUrl =
+        rulesSafeUrl(
+          item.downloadUrl
+        );
+
+      const imageUrl =
+        rulesSafeImageUrl(
+          item.imageUrl
+        );
+
+
+      /* =====================================================
+         GAMBAR
+         ===================================================== */
+
+      const imageHtml =
+        imageUrl
+          ? `
+            <div class="rules-card-image">
+
+              <img
+                src="${imageUrl}"
+                alt="${nama}"
+                loading="lazy"
+                onerror="
+                  this.style.display='none';
+                  this.parentElement.classList.add(
+                    'rules-image-error'
+                  );
+                "
+              >
+
+              <div
+                class="rules-image-overlay">
+              </div>
+
+            </div>
+          `
+          : `
+            <div
+              class="
+                rules-card-image
+                rules-no-image
+              "
+            >
+
+              <div
+                class="rules-placeholder-icon">
+                📄
+              </div>
+
+            </div>
+          `;
+
+
+      return `
+
+        <article
+          class="rules-card"
+          style="
+            --rules-delay:
+            ${index * 60}ms
+          "
+        >
+
+          ${imageHtml}
+
+
+          <div class="rules-card-content">
+
+
+            <div class="rules-card-top">
+
+              <div
+                class="rules-document-icon"
+              >
+
+                <svg
+                  viewBox="0 0 24 24"
+                  aria-hidden="true"
+                >
+                  <path
+                    d="M6 2h8l5 5v15H6z">
+                  </path>
+
+                  <path
+                    d="M14 2v6h6">
+                  </path>
+
+                  <path
+                    d="M9 13l2 2 4-4">
+                  </path>
+                </svg>
+
+              </div>
+
+
+              <div class="rules-number">
+                ${
+                  String(index + 1)
+                    .padStart(2, '0')
+                }
+              </div>
+
+            </div>
+
+
+            <div class="rules-card-body">
+
+              <div class="rules-label">
+                PERATURAN PERTANDINGAN
+              </div>
+
+              <h3 class="rules-sport-name">
+                ${nama}
+              </h3>
+
+              <p class="rules-description">
+                Dokumen rasmi syarat dan
+                peraturan pertandingan
+                PSKPP Selangor 2026.
+              </p>
+
+            </div>
+
+
+            <div class="rules-card-actions">
+
+              <a
+                class="
+                  rules-btn
+                  rules-btn-view
+                "
+                href="${viewUrl}"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <span
+                  class="rules-btn-icon">
+                  👁
+                </span>
+
+                LIHAT
+              </a>
+
+
+              <a
+                class="
+                  rules-btn
+                  rules-btn-download
+                "
+                href="${downloadUrl}"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <span
+                  class="rules-btn-icon">
+                  ↓
+                </span>
+
+                DOWNLOAD PDF
+              </a>
+
+            </div>
+
+
+          </div>
+
+        </article>
+
+      `;
+
+    }).join('');
+
+
+  console.log(
+    'RULES:',
+    data.length,
+    'scorecard berjaya dipaparkan.'
+  );
+
+}
+
+
+/* =========================================================
+   ERROR
+   ========================================================= */
+
+function rulesShowError(message) {
+
+  const container =
+    document.getElementById(
+      'rulesCards'
+    );
+
+  if (!container) {
+    return;
+  }
+
+  container.innerHTML = `
+
+    <div class="rules-error">
+
+      <div class="rules-error-icon">
+        !
+      </div>
+
+      <div>
+
+        <strong>
+          PERATURAN TIDAK DAPAT DIMUATKAN
+        </strong>
+
+        <p>
+          ${rulesEscapeHtml(message)}
+        </p>
+
+      </div>
+
+    </div>
+
+  `;
+
+}
+
+
+/* =========================================================
+   SECURITY - TEXT
+   ========================================================= */
+
+function rulesEscapeHtml(value) {
+
+  return String(value || '')
+    .replace(/&/g, '&amp;')
+    .replace(/</g, '&lt;')
+    .replace(/>/g, '&gt;')
+    .replace(/"/g, '&quot;')
+    .replace(/'/g, '&#039;');
+
+}
+
+
+/* =========================================================
+   SECURITY - PDF URL
+   ========================================================= */
+
+function rulesSafeUrl(value) {
+
+  const url =
+    String(value || '').trim();
+
+  if (
+    url.startsWith(
+      'https://drive.google.com/'
+    )
+  ) {
+    return url;
+  }
+
+  return '#';
+
+}
+
+
+/* =========================================================
+   SECURITY - IMAGE URL
+   ========================================================= */
+
+function rulesSafeImageUrl(value) {
+
+  const url =
+    String(value || '').trim();
+
+  if (
+    url.startsWith(
+      'https://drive.google.com/'
+    )
+  ) {
+    return url;
+  }
+
+  return '';
+
+}
+
+
+/* =========================================================
+   AUTO LOAD
+   ========================================================= */
+
+document.addEventListener(
+  'DOMContentLoaded',
+  function() {
+
+    console.log(
+      'RULES: DOMContentLoaded'
+    );
+
+    setTimeout(
+      function() {
+
+        const container =
+          document.getElementById(
+            'rulesCards'
+          );
+
+        if (container) {
+
+          console.log(
+            'RULES: #rulesCards dijumpai.'
+          );
+
+          rulesLoadData();
+
+        }
+
+      },
+      300
+    );
+
+  }
+);

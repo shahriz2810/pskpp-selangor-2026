@@ -1,0 +1,1119 @@
+ <!DOCTYPE html>
+
+<html lang="ms">
+
+<head>
+
+
+  <meta charset="UTF-8">
+
+  <meta name="viewport"
+        content="width=device-width, initial-scale=1.0">
+
+  <title>PSKPP SELANGOR 2026</title>
+
+  <meta name="theme-color"
+        content="#080A0F">
+
+  <link rel="preconnect"
+        href="https://fonts.googleapis.com">
+
+  <link rel="preconnect"
+        href="https://fonts.gstatic.com"
+        crossorigin>
+
+  <link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Montserrat:wght@400;500;600;700;800;900&display=swap"
+        rel="stylesheet">
+
+  <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
+<link rel="stylesheet" href="styles.css">
+<link rel="stylesheet" href="rules.css">
+<link rel="stylesheet" href="gallery.css">
+
+</head>
+
+
+<body>
+
+
+<!-- =====================================================
+     HEADER
+===================================================== -->
+
+<header class="top-header">
+
+  <div class="header-inner">
+
+    <div class="brand">
+
+      <img
+  id="logo"
+  class="brand-logo"
+  src="https://drive.google.com/thumbnail?id=1MmjN7r1KJEkAQs1uYxjWOKMLKiEMuGg4&sz=w600"
+  alt="Logo PSKPP Selangor 2026"
+  loading="eager"
+  fetchpriority="high"
+>
+
+        <div class="brand-title">
+          PSKPP SELANGOR<br>
+          2026
+        </div>
+
+      </div>
+
+    </div>
+
+
+    <div
+      id="mobileMenu"
+      class="mobile-menu"
+      onclick="toggleMenu()">
+
+      <i class="fa-solid fa-bars"></i>
+
+    </div>
+
+
+    <nav
+  id="mainNav"
+  class="main-nav">
+
+  <a href="#utama" data-nav>
+    UTAMA
+  </a>
+
+  <a href="#jadual" data-nav>
+    JADUAL
+  </a>
+
+  <a href="#venue" data-nav>
+    LOKASI PERTANDINGAN
+  </a>
+
+  <a href="#peraturan" data-nav>
+    PERATURAN
+  </a>
+
+  <a href="#keputusan" data-nav>
+  KEPUTUSAN
+</a>
+
+  <a href="#penginapan" data-nav>
+    PENGINAPAN
+  </a>
+
+  <a href="#tempat" data-nav>
+    TEMPAT MENARIK
+  </a>
+
+  <a href="#penutup" data-nav>
+    MAJLIS PENUTUP
+  </a>
+
+</nav>
+
+
+    <div class="header-tools">
+
+      <div class="clock-box">
+
+        <div id="clockDate"
+             class="clock-date">
+          MEMUATKAN...
+        </div>
+
+        <div id="clockTime"
+             class="clock-time">
+          00:00:00
+        </div>
+
+        <div
+  id="lastSync"
+  style="
+    font-size:8px;
+    color:#A7ADB8;
+    margin-top:2px;
+  ">
+
+  KEMASKINI TERAKHIR: --
+
+</div>
+
+<div
+  id="syncStatus"
+  style="
+    font-size:8px;
+    color:#FFD200;
+    margin-top:2px;
+    font-weight:800;
+  ">
+
+  AUTO-SYNC 30S
+
+</div>
+
+      </div>
+
+
+      <button
+        class="tool-btn"
+        onclick="toggleFullscreen()"
+        title="Paparan skrin penuh"
+        aria-label="Paparan skrin penuh">
+
+        <i class="fa-solid fa-expand"></i>
+
+      </button>
+
+
+      <button
+        class="tool-btn"
+        onclick="loadPortalData()"
+        title="Muat semula data"
+        aria-label="Muat semula data">
+
+        <i class="fa-solid fa-rotate"></i>
+
+      </button>
+
+    </div>
+
+  </div>
+
+</header>
+
+
+<!-- =====================================================
+     NEWS TICKER
+===================================================== -->
+
+<section id="info"
+         class="ticker">
+
+  <div class="ticker-label">
+
+    <i class="fa-solid fa-circle"
+       style="font-size:7px;margin-right:7px">
+    </i>
+
+    LIVE KEMASKINI
+
+  </div>
+
+
+  <div class="ticker-window">
+
+    <div id="tickerText"
+         class="ticker-track">
+
+      Memuatkan maklumat terkini...
+
+    </div>
+
+  </div>
+
+</section>
+
+
+
+
+
+<!-- =====================================================
+     HERO
+===================================================== -->
+
+<main id="utama">
+
+<section class="hero">
+
+  <div class="hero-content">
+
+
+    <div>
+
+      <div class="hero-kicker">
+
+        PORTAL RASMI KEJOHANAN NEGERI SELANGOR
+
+      </div>
+
+
+      <h1>
+        PSKPP <span>SELANGOR</span><br>
+        2026
+      </h1>
+
+
+      <div class="hero-org">
+
+        PERSATUAN SUKAN & KEBUDAYAAN
+        PERKHIDMATAN PELAJARAN SELANGOR
+
+      </div>
+
+
+      <div class="hero-slogan">
+
+        "SATU SEMANGAT. SATU PASUKAN.
+        <span>SATU SELANGOR.</span>"
+
+      </div>
+
+      <p class="hero-description">
+        Pusat rujukan digital utama kejohanan untuk jadual, keputusan,
+        lokasi, penginapan, peraturan dan maklumat rasmi PSKPP Selangor 2026.
+      </p>
+
+      <div
+  id="eventStatus"
+  class="event-status upcoming">
+
+  COUNTDOWN KE KEJOHANAN
+
+</div>
+
+      <div class="countdown">
+
+        <div class="time-card">
+
+          <div id="days"
+               class="time-number">
+            00
+          </div>
+
+          <div class="time-label">
+            HARI
+          </div>
+
+        </div>
+
+
+        <div class="time-card">
+
+          <div id="hours"
+               class="time-number">
+            00
+          </div>
+
+          <div class="time-label">
+            JAM
+          </div>
+
+        </div>
+
+
+        <div class="time-card">
+
+          <div id="minutes"
+               class="time-number">
+            00
+          </div>
+
+          <div class="time-label">
+            MINIT
+          </div>
+
+        </div>
+
+
+        <div class="time-card">
+
+          <div id="seconds"
+               class="time-number">
+            00
+          </div>
+
+          <div class="time-label">
+            SAAT
+          </div>
+
+        </div>
+
+      </div>
+
+      <div class="hero-actions">
+
+        <a class="hero-btn primary hero-quick-link" href="#jadual" aria-label="Semak jadual harian">
+          <i class="fa-regular fa-calendar-days"></i>
+          SEMAK JADUAL HARIAN
+        </a>
+
+        <a class="hero-btn primary hero-quick-link" href="#keputusan" aria-label="Semak keputusan">
+          <i class="fa-solid fa-ranking-star"></i>
+          SEMAK KEPUTUSAN
+        </a>
+
+  <!-- MUAT NAIK GAMBAR -->
+  <button
+    id="uploadPhotoBtn"
+    class="gallery-upload-btn"
+    type="button"
+    aria-label="Muat naik gambar kejohanan">
+
+    <i class="fa-solid fa-cloud-arrow-up"></i>
+
+    <span>
+      MUAT NAIK GAMBAR
+    </span>
+
+  </button>
+
+</div>
+
+
+    <div class="mascot-area">
+
+      <div class="mascot-glow"></div>
+
+ <img
+  id="mascot"
+  class="mascot"
+  src="https://drive.google.com/thumbnail?id=1L2yv8dnALOXBXfp-MICV0wAuUsS2oMAT&sz=w1200"
+  alt="Maskot Burung Enggang"
+  loading="eager"
+  fetchpriority="high"
+>
+
+      <div class="mascot-caption">
+        MASKOT RASMI • PSKPP SELANGOR 2026
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
+
+<!-- =====================================================
+     JADUAL
+===================================================== -->
+
+<section id="jadual"
+         class="section">
+
+  <div class="section-header">
+
+    <div>
+
+      <div class="section-kicker">
+        PROGRAM KEJOHANAN
+      </div>
+
+      <div class="section-title">
+        Jadual Pertandingan
+      </div>
+
+    </div>
+
+  </div>
+
+
+  <div class="filters">
+
+    <input
+      id="scheduleSearch"
+      class="input-control"
+      placeholder="Cari pertandingan..."
+      oninput="renderSchedule()">
+
+
+    <select
+      id="filterSport"
+      class="input-control"
+      onchange="renderSchedule()">
+
+      <option value="">
+        Semua Pertandingan
+      </option>
+
+    </select>
+
+
+    <select
+      id="filterLocation"
+      class="input-control"
+      onchange="renderSchedule()">
+
+      <option value="">
+        Semua Lokasi
+      </option>
+
+    </select>
+
+
+    <select
+      id="filterDistrict"
+      class="input-control"
+      onchange="renderSchedule()">
+
+      <option value="">
+        Semua Daerah
+      </option>
+
+    </select>
+
+
+    <select
+      id="filterStatus"
+      class="input-control"
+      onchange="renderSchedule()">
+
+      <option value="">
+        Semua Status
+      </option>
+
+      <option value="LIVE">
+        LIVE
+      </option>
+
+      <option value="AKAN DATANG">
+        AKAN DATANG
+      </option>
+
+      <option value="SELESAI">
+        SELESAI
+      </option>
+
+    </select>
+
+  </div>
+
+
+  <div class="table-wrapper">
+
+    <table class="data-table">
+
+      <thead>
+
+        <tr>
+
+          <th>TARIKH MULA</th>
+
+          <th>TARIKH AKHIR</th>
+
+          <th>MASA</th>
+
+          <th>PERTANDINGAN</th>
+
+          <th>KATEGORI</th>
+
+          <th>LOKASI</th>
+
+          <th>DAERAH</th>
+
+          <th>STATUS</th>
+
+        </tr>
+
+      </thead>
+
+      <tbody id="scheduleBody">
+
+      </tbody>
+
+    </table>
+
+  </div>
+
+</section>
+
+<!-- =====================================================
+     VENUES
+===================================================== -->
+
+<section id="venue"
+         class="section">
+
+  <div class="section-header">
+
+    <div>
+
+      <div class="section-kicker">
+        LOKASI
+      </div>
+
+      <div class="section-title">
+        Lokasi Pertandingan
+      </div>
+
+    </div>
+
+  </div>
+
+
+  <div class="content-grid"
+       id="venueGrid">
+
+  </div>
+
+</section>
+
+<!-- =====================================================
+     RULES
+===================================================== -->
+
+<section id="peraturan"
+         class="section">
+
+  <div class="section-header">
+
+    <div>
+
+      <div class="section-kicker">
+        RUJUKAN RASMI
+      </div>
+
+      <div class="section-title">
+        Peraturan Pertandingan
+      </div>
+
+    </div>
+
+  </div>
+
+  <!-- SCORECARD PERATURAN -->
+  <div class="rules-grid"
+     id="rulesCards">
+
+    <div class="rules-loading">
+      Memuatkan peraturan pertandingan...
+    </div>
+
+  </div>
+
+</section>
+
+<!-- =====================================================
+     KEPUTUSAN TERKINI
+     1. KEDUDUKAN MARKAH / POINT
+     2. KEDUDUKAN PINGAT
+===================================================== -->
+
+<section id="keputusan"
+         class="section results-section"
+         style="padding-top:20px">
+
+  <div class="section-header">
+
+    <div>
+
+      <div class="section-kicker">
+        KEPUTUSAN TERKINI
+      </div>
+
+      <div class="section-title">
+        Kedudukan Semasa Kejohanan
+      </div>
+
+      <div class="section-desc">
+        Kedudukan berdasarkan markah pertandingan dan pungutan pingat semasa.
+      </div>
+
+    </div>
+
+  </div>
+
+
+  <!-- =================================================
+       KEDUDUKAN MARKAH / POINT
+  ================================================== -->
+
+  <div class="result-block point-wrapper">
+
+    <div class="result-header point-header">
+
+      <h3>
+        <i class="fa-solid fa-ranking-star"></i>
+        KEDUDUKAN MARKAH
+      </h3>
+
+      <div class="result-live">
+        <span></span>
+        LIVE POINT
+      </div>
+
+    </div>
+
+
+    <div id="pointList"
+         class="point-list">
+
+      Memuatkan markah...
+
+    </div>
+
+  </div>
+
+
+  <!-- =================================================
+       PEMISAH
+  ================================================== -->
+
+  <div class="result-divider">
+
+    <span></span>
+
+    KEDUDUKAN PINGAT
+
+    <span></span>
+
+  </div>
+
+
+  <!-- =================================================
+       KEDUDUKAN PINGAT
+  ================================================== -->
+
+  <div class="medal-wrapper">
+
+    <div class="medal-header">
+
+      <h3>
+        <i class="fa-solid fa-medal"></i>
+        KEDUDUKAN PINGAT
+      </h3>
+
+      <div class="medal-live">
+        LIVE DATA
+      </div>
+
+    </div>
+
+
+    <div id="medalList"
+         class="medal-list">
+
+      Memuatkan pingat...
+
+    </div>
+
+  </div>
+
+</section>
+
+<!-- =====================================================
+     LIVE STATUS
+===================================================== -->
+
+<section class="section">
+
+  <div class="section-header">
+
+    <div>
+
+      <div class="section-kicker">
+        STATUS KEJOHANAN
+      </div>
+
+      <div class="section-title">
+        Live Competition Status
+      </div>
+
+    </div>
+
+  </div>
+
+
+  <div class="status-grid">
+
+
+    <div class="status-card live">
+
+      <div class="status-label">
+
+        <span class="status-dot"></span>
+
+        LIVE NOW
+
+      </div>
+
+      <div id="liveCount"
+           class="status-number">
+        0
+      </div>
+
+      <div class="status-label">
+        PERTANDINGAN SEDANG BERLANGSUNG
+      </div>
+
+    </div>
+
+
+    <div class="status-card">
+
+      <div class="status-label">
+
+        <i class="fa-solid fa-clock"
+           style="color:#FFD200">
+        </i>
+
+        AKAN DATANG
+
+      </div>
+
+      <div id="upcomingCount"
+           class="status-number">
+        0
+      </div>
+
+      <div class="status-label">
+        PERTANDINGAN AKAN DATANG
+      </div>
+
+    </div>
+
+
+    <div class="status-card">
+
+      <div class="status-label">
+
+        <i class="fa-solid fa-check"
+           style="color:#20c77a">
+        </i>
+
+        SELESAI
+
+      </div>
+
+      <div id="completedCount"
+           class="status-number">
+        0
+      </div>
+
+      <div class="status-label">
+        PERTANDINGAN SELESAI
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
+<!-- =====================================================
+     CLOSING CEREMONY
+===================================================== -->
+
+<section id="penutup"
+         class="section">
+
+  <div class="closing">
+
+    <div class="section-kicker">
+      ACARA KEMUNCAK
+    </div>
+
+    <div class="closing-title">
+
+      MAJLIS
+      <span>PENUTUP</span>
+
+    </div>
+
+    <p class="section-desc">
+
+      KEJOHANAN PERSATUAN SUKAN & KEBUDAYAAN
+      PERKHIDMATAN PELAJARAN SELANGOR 2026
+
+    </p>
+
+
+    <div class="countdown">
+
+      <div class="time-card">
+
+        <div id="closeDays"
+             class="time-number">
+          00
+        </div>
+
+        <div class="time-label">
+          HARI
+        </div>
+
+      </div>
+
+
+      <div class="time-card">
+
+        <div id="closeHours"
+             class="time-number">
+          00
+        </div>
+
+        <div class="time-label">
+          JAM
+        </div>
+
+      </div>
+
+
+      <div class="time-card">
+
+        <div id="closeMinutes"
+             class="time-number">
+          00
+        </div>
+
+        <div class="time-label">
+          MINIT
+        </div>
+
+      </div>
+
+
+      <div class="time-card">
+
+        <div id="closeSeconds"
+             class="time-number">
+          00
+        </div>
+
+        <div class="time-label">
+          SAAT
+        </div>
+
+      </div>
+
+    </div>
+
+
+    <div id="closingInfo"
+         style="margin-top:25px">
+
+    </div>
+
+  </div>
+
+</section>
+
+
+
+<!-- =====================================================
+     ACCOMMODATION
+===================================================== -->
+
+<section id="penginapan"
+         class="section">
+
+  <div class="section-header">
+
+    <div>
+
+      <div class="section-kicker">
+        HOSPITALITI
+      </div>
+
+      <div class="section-title">
+        Penginapan Sekitar Hulu Selangor
+      </div>
+
+    </div>
+
+  </div>
+
+
+  <div class="content-grid"
+       id="accommodationGrid">
+
+  </div>
+
+</section>
+
+
+
+<!-- =====================================================
+     PLACES
+===================================================== -->
+
+<section id="tempat"
+         class="section">
+
+  <div class="section-header">
+
+    <div>
+
+      <div class="section-kicker">
+        EXPLORE HULU SELANGOR
+      </div>
+
+      <div class="section-title">
+        Terokai Hulu Selangor
+      </div>
+
+    </div>
+
+  </div>
+
+
+  <div class="content-grid"
+       id="placesGrid">
+
+  </div>
+
+</section>
+
+
+
+
+
+<!-- =====================================================
+     INFO
+===================================================== -->
+
+<section id="info-kejohanan"
+         class="section">
+
+  <div class="glass-card"
+       style="padding:35px">
+
+    <div class="section-kicker">
+      PSKPP SELANGOR 2026
+    </div>
+
+    <div class="section-title">
+      Semangat Kesukanan, Kesatuan dan Kecemerlangan
+    </div>
+
+    <p class="section-desc">
+
+      Portal digital rasmi yang menghimpunkan
+      maklumat kejohanan, jadual pertandingan,
+      kedudukan pingat, lokasi, penginapan,
+      peraturan dan maklumat berkaitan.
+
+    </p>
+
+  </div>
+
+</section>
+
+</main>
+
+
+
+<!-- =====================================================
+     FOOTER
+===================================================== -->
+
+<footer class="footer">
+
+  <div class="footer-inner">
+
+
+    <div>
+
+      <div class="footer-brand">
+        PSKPP SELANGOR 2026
+      </div>
+
+      <div class="footer-desc">
+
+        PERSATUAN SUKAN & KEBUDAYAAN
+        PERKHIDMATAN PENDIDIKAN SELANGOR
+
+        <br><br>
+
+        Semangat Kesukanan • Kesatuan • Kecemerlangan
+
+      </div>
+
+    </div>
+
+
+    <div>
+
+      <div class="footer-title">
+        PAUTAN PANTAS
+      </div>
+
+      <div class="footer-links">
+
+        <a href="#jadual">
+          Jadual Pertandingan
+        </a>
+
+        <a href="#keputusan">
+          Keputusan
+        </a>
+
+        <a href="#penginapan">
+          Penginapan
+        </a>
+
+        <a href="#tempat">
+          Tempat Menarik
+        </a>
+
+      </div>
+
+    </div>
+
+
+    <div>
+
+      <div class="footer-title">
+        MEDIA & HUBUNGAN
+      </div>
+
+      <div class="footer-links">
+
+        <a id="instagramLink"
+           href="#"
+           target="_blank">
+          Instagram
+        </a>
+
+        <a id="facebookLink"
+           href="#"
+           target="_blank">
+          Facebook
+        </a>
+
+        <a id="youtubeLink"
+           href="#"
+           target="_blank">
+          YouTube
+        </a>
+
+        <a id="whatsappLink"
+           href="#"
+           target="_blank">
+          WhatsApp
+        </a>
+
+        <a id="emailLink"
+           href="#">
+          Email
+        </a>
+
+      </div>
+
+    </div>
+
+  </div>
+
+
+  <div class="copyright">
+
+    <div>
+      © 2026 PSKPP SELANGOR
+    </div>
+
+    <div>
+      Hak Cipta USTP PPD Hulu Selangor
+    </div>
+
+  </div>
+
+</footer>
+
+<script src="script.js"></script>
+<script src="rules.js"></script>
+<script src="gallery.js"></script>
+
+</body>
+
+</html>
