@@ -1522,7 +1522,7 @@ function renderSchedule() {
       <tr>
 
         <td
-          colspan="8"
+          colspan="7"
           style="
             text-align:center;
             padding:35px;
@@ -1625,14 +1625,6 @@ function renderSchedule() {
             <td>
               ${escapeHtml(
                 item.Lokasi || '-'
-              )}
-            </td>
-
-
-            <!-- DAERAH -->
-            <td>
-              ${escapeHtml(
-                item.Daerah || '-'
               )}
             </td>
 
