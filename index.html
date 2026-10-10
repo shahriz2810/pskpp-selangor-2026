@@ -32,6 +32,38 @@
 <link rel="stylesheet" href="rules.css">
 <link rel="stylesheet" href="gallery.css">
 
+
+<!-- GAYA KHUSUS SUBMENU UTAMA; TIDAK MENGUBAH styles.css -->
+<style>
+.pskpp-utama-menu { position:relative; display:flex; align-items:center; }
+.pskpp-utama-link { display:inline-flex; align-items:center; gap:7px; }
+.pskpp-utama-link .fa-chevron-down { font-size:9px; }
+.pskpp-utama-dropdown {
+  display:none; position:absolute; top:100%; left:0; z-index:9999;
+  min-width:190px; padding:7px; background:#141922;
+  border:1px solid rgba(255,212,0,.45); border-radius:10px;
+  box-shadow:0 12px 26px rgba(0,0,0,.35);
+}
+.pskpp-utama-menu:hover .pskpp-utama-dropdown,
+.pskpp-utama-menu:focus-within .pskpp-utama-dropdown { display:block; }
+.main-nav .pskpp-utama-dropdown a {
+  display:flex; align-items:center; gap:9px; padding:11px 12px;
+  color:#ffd400; text-decoration:none; font-size:12px; font-weight:800;
+  white-space:nowrap; border-radius:7px;
+}
+.main-nav .pskpp-utama-dropdown a:hover,
+.main-nav .pskpp-utama-dropdown a:focus { background:rgba(255,212,0,.12); }
+@media (max-width: 850px) {
+  .pskpp-utama-menu { display:block; width:100%; }
+  .pskpp-utama-dropdown {
+    display:block; position:static; box-shadow:none;
+    border:0; background:transparent; padding:0 0 0 12px;
+    min-width:0;
+  }
+  .main-nav .pskpp-utama-dropdown a { font-size:12px; }
+}
+</style>
+
 </head>
 
 
@@ -81,9 +113,18 @@
   id="mainNav"
   class="main-nav">
 
-  <a href="#utama" data-nav>
-    UTAMA
-  </a>
+  <!-- SUBMENU UTAMA: INFO PENTING (PDF GOOGLE DRIVE) -->
+  <div class="pskpp-utama-menu">
+    <a href="#utama" data-nav class="pskpp-utama-link">
+      UTAMA <i class="fa-solid fa-chevron-down" aria-hidden="true"></i>
+    </a>
+    <div class="pskpp-utama-dropdown">
+      <a href="info.html" class="pskpp-info-link">
+        <i class="fa-solid fa-file-pdf" aria-hidden="true"></i>
+        INFO PENTING
+      </a>
+    </div>
+  </div>
 
   <a href="#jadual" data-nav>
     JADUAL
