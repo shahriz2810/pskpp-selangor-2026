@@ -4937,3 +4937,35 @@ function getScheduleCompetitionName(item) {
     ''
   ).trim();
 }
+
+/* Pautan PDF Jadual Acara PSKPP 2026 */
+function getScheduleEventUrl(value) {
+  const raw = String(value || '').trim();
+
+  if (!raw) return '';
+
+  // Google Drive File ID
+  if (/^[a-zA-Z0-9_-]{15,}$/.test(raw)) {
+    return 'https://drive.google.com/file/d/' +
+      encodeURIComponent(raw) + '/view';
+  }
+
+  // URL Google Drive penuh
+  try {
+    const url = new URL(raw);
+
+    if (
+      url.protocol === 'https:' &&
+      (
+        url.hostname === 'drive.google.com' ||
+        url.hostname === 'docs.google.com'
+      )
+    ) {
+      return url.href;
+    }
+  } catch (error) {
+    return '';
+  }
+
+  return '';
+}
