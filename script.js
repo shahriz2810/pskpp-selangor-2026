@@ -1674,13 +1674,11 @@ function getScheduleEventUrl(value) {
 
   if (!raw) return '';
 
-  // Google Drive File ID
   if (/^[a-zA-Z0-9_-]{15,}$/.test(raw)) {
     return 'https://drive.google.com/file/d/' +
       encodeURIComponent(raw) + '/view';
   }
 
-  // URL penuh Google Drive
   try {
     const url = new URL(raw);
 
@@ -1701,10 +1699,7 @@ function getScheduleEventUrl(value) {
 }
 
 function getScheduleCompetitionName(item) {
-
-  if (!item) {
-    return '';
-  }
+  if (!item) return '';
 
   return String(
     item['Nama Pertandingan'] ||
@@ -1713,7 +1708,6 @@ function getScheduleCompetitionName(item) {
     item.Sukan ||
     ''
   ).trim();
-
 }
 
 
