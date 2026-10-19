@@ -6136,3 +6136,30 @@ nav a {
   font-size: 12px !important;
   padding: 7px 10px !important;
 }
+/* JADUAL ACARA - PSKPP 2026 */
+
+.schedule-event-link {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 9px 15px;
+  border-radius: 20px;
+  background: #FFD200;
+  color: #101010;
+  font-size: 11px;
+  font-weight: 900;
+  text-decoration: none;
+  white-space: nowrap;
+  transition: all 0.2s ease;
+}
+
+.schedule-event-link:hover {
+  background: #FFFFFF;
+  transform: translateY(-2px);
+}
+
+.schedule-event-empty {
+  color: #89919E;
+  font-size: 11px;
+  font-weight: 700;
+}
