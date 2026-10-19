@@ -1555,10 +1555,27 @@ function renderSchedule() {
         const tarikhAkhir =
           getScheduleEndDate(item);
 
-        const kategori =
-          item.Kategori ||
-          item['Jenis Kategori'] ||
-          '-';
+        const pautanJadual =
+  getScheduleEventUrl(
+    item['Pautan Jadual Acara']
+  );
+
+const jadualAcaraHtml = pautanJadual
+  ? `
+    <a
+      href="${escapeHtml(pautanJadual)}"
+      target="_blank"
+      rel="noopener noreferrer"
+      class="schedule-event-link"
+    >
+      📄 LIHAT JADUAL
+    </a>
+  `
+  : `
+    <span class="schedule-event-empty">
+      BELUM TERSEDIA
+    </span>
+  `;
 
 
         return `
@@ -1613,12 +1630,10 @@ function renderSchedule() {
             </td>
 
 
-            <!-- KATEGORI -->
-            <td>
-              ${escapeHtml(
-                kategori
-              )}
-            </td>
+            <!-- JADUAL ACARA -->
+<td>
+  ${jadualAcaraHtml}
+</td>
 
 
             <!-- LOKASI -->
@@ -1653,7 +1668,38 @@ function renderSchedule() {
  * 1. Nama Pertandingan
  * 2. Pertandingan
  * 3. Sukan
- */
+
+function getScheduleEventUrl(value) {
+  const raw = String(value || '').trim();
+
+  if (!raw) return '';
+
+  // Google Drive File ID
+  if (/^[a-zA-Z0-9_-]{15,}$/.test(raw)) {
+    return 'https://drive.google.com/file/d/' +
+      encodeURIComponent(raw) + '/view';
+  }
+
+  // URL penuh Google Drive
+  try {
+    const url = new URL(raw);
+
+    if (
+      url.protocol === 'https:' &&
+      (
+        url.hostname === 'drive.google.com' ||
+        url.hostname === 'docs.google.com'
+      )
+    ) {
+      return url.href;
+    }
+  } catch (error) {
+    return '';
+  }
+
+  return '';
+}
+
 function getScheduleCompetitionName(item) {
 
   if (!item) {
