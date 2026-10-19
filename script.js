@@ -4924,4 +4924,17 @@ function emptyState(text) {
 
 }
 
+/* PEMBETULAN NAMA ACARA - PSKPP 2026 */
+function getScheduleCompetitionName(item) {
+  if (!item) return '';
+
+  return String(
+    item['Nama Pertandingan'] ||
+    item.NamaPertandingan ||
+    item.Pertandingan ||
+    item.Sukan ||
+    ''
+  ).trim();
+}
+
 
