@@ -1668,6 +1668,7 @@ const jadualAcaraHtml = pautanJadual
  * 1. Nama Pertandingan
  * 2. Pertandingan
  * 3. Sukan
+ */
 
 function getScheduleEventUrl(value) {
   const raw = String(value || '').trim();
