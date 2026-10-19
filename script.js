@@ -4937,5 +4937,3 @@ function getScheduleCompetitionName(item) {
     ''
   ).trim();
 }
-
-
