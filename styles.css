@@ -6189,3 +6189,20 @@ nav a {
   font-weight: 800 !important;
   display: inline-block !important;
 }
+
+/* STATUS JADUAL KEJOHANAN */
+
+#scheduleBody .badge-live {
+  background: #16a34a !important;
+  color: #ffffff !important;
+}
+
+#scheduleBody .badge-completed {
+  background: #dc2626 !important;
+  color: #ffffff !important;
+}
+
+#scheduleBody .badge-upcoming {
+  background: #ffd400 !important;
+  color: #111111 !important;
+}
