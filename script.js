@@ -4352,9 +4352,9 @@ function statusBadge(status) {
   if (value === 'LIVE') {
 
     return `
-      <span class="badge badge-live">
-        ● LIVE
-      </span>
+     <span class="badge badge-live">
+  ● BERLANGSUNG
+</span>
     `;
 
   }
@@ -4397,35 +4397,38 @@ function statusBadge(status) {
 }
 
 
+
 function normalizeStatus(value) {
-
-  const status =
-    String(value || '')
-      .trim()
-      .toUpperCase();
-
+  const status = String(value || '')
+    .trim()
+    .toUpperCase();
 
   if (
-    status === 'UPCOMING'
+    status === 'LIVE' ||
+    status === 'BERLANGSUNG' ||
+    status === 'ONGOING' ||
+    status === 'IN PROGRESS'
   ) {
+    return 'LIVE';
+  }
 
+  if (
+    status === 'UPCOMING' ||
+    status === 'AKAN DATANG'
+  ) {
     return 'AKAN DATANG';
-
   }
-
 
   if (
-    status === 'COMPLETED'
+    status === 'COMPLETED' ||
+    status === 'SELESAI'
   ) {
-
     return 'SELESAI';
-
   }
-
 
   return status;
-
 }
+
 
 
 /* ====================================================
