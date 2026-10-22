@@ -521,9 +521,10 @@ function renderPortal() {
 
   renderPoints();
 
-  renderMedals();
+// Paparan Kedudukan Pingat dinyahaktifkan
+// renderMedals();
 
-  renderSchedule();
+renderSchedule();
 
   // Kemaskini pilihan filter berdasarkan data SCHEDULE terkini.
   populateScheduleFilters();
